@@ -16,16 +16,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    public static final String USER = "dfg1";
+    public static final String STUDENT = "dfg1";
     public static final String ADMIN = "e8bf";
+    public static final String TEACHER = "fg3h";
     @Id
     @CreatedBy
     private String id;
     private String name;
+    private String dep;
     private String account;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private String role;
+    private String teacher;
+    private String student;
     @ReadOnlyProperty
     private LocalDateTime createTime;
     @ReadOnlyProperty

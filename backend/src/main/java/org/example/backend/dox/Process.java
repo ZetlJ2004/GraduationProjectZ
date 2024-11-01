@@ -1,4 +1,4 @@
-package com.example.graduationprojectprocessmanagement.dox;
+package org.example.backend.dox;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -22,17 +22,14 @@ public class Process {
     @Id
     @CreatedBy
     private String id;
+    private String depId;
     private String name;
-    // json
-    private String items;
-    private int point;
-    private String auth;
-    private String departmentId;
-    // json
-    private String studentAttach;
+    private int weight;
+    private String parts;
+    private String addPart;
     @ReadOnlyProperty
     @JsonIgnore
-    private LocalDateTime insertTime;
+    private LocalDateTime createTime;
     @ReadOnlyProperty
     @JsonIgnore
     private LocalDateTime updateTime;

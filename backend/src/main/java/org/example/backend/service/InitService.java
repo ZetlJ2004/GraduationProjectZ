@@ -24,6 +24,7 @@ public class InitService {
         }
         User u = User.builder()
                 .name(account)
+                .dep(account)
                 .account(account)
                 .password(passwordEncoder.encode(account))
                 .role(User.ADMIN)
