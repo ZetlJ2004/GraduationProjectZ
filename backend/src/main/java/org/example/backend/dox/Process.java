@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Process {
-    public static final String TUTOR = "AsImV";
-    public static final String REVIEW = "zg0NS";
 
     @Id
     @CreatedBy

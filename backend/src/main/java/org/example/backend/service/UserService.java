@@ -2,9 +2,11 @@ package org.example.backend.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.backend.dox.Process;
 import org.example.backend.dox.User;
 import org.example.backend.exception.Code;
 import org.example.backend.exception.XException;
+import org.example.backend.repository.ProcessRepository;
 import org.example.backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ProcessRepository processRepository;
 
     public User getUser(String account) {
         return userRepository.findByAccount(account);
@@ -47,5 +50,9 @@ public class UserService {
     }
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public List<Process> listProcess(String depId) {
+        return processRepository.findByDepId(depId);
     }
 }

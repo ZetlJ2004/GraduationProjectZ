@@ -19,4 +19,10 @@ public interface UserRepository extends ListCrudRepository<User, String> {
     @Modifying
     @Query("update user u set student=json_set(student,'$.teacherId',:tid) where id=:sid")
     void updateStudentById(String sid,String tid);
+
+    @Query("select * from user u where department->>'$.depId'=:depId and student->>'$.teacherId'=:tid")
+    List<User> myselfStudents(String depId,String tid);
+
+    @Query("select * from user where cast(department->>'$.depId' as char(19))=:depId and role=:role and `group`=:group")
+    List<User> findByDepIdAndRoleAndGroup(String depId,String role,int group);
 }

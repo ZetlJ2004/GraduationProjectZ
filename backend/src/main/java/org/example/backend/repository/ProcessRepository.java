@@ -9,5 +9,10 @@ import java.util.List;
 
 @Repository
 public interface ProcessRepository extends CrudRepository<Process,String> {
+    @Query("select * from `process` p where p.depId=:depId")
+    List<Process> findByDepId(String depId);
 
+
+    @Query("delete from process where id=:pid and depId=:did")
+    void deleteByIdAndDepId(String pid,String did);
 }

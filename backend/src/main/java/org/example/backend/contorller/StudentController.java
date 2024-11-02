@@ -2,10 +2,12 @@ package org.example.backend.contorller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.backend.dox.ProcessScore;
 import org.example.backend.service.StudentService;
 import org.example.backend.vo.ResultVO;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -27,5 +29,11 @@ public class StudentController {
     public ResultVO chooseTeacher(@RequestAttribute("uid")String sid, @PathVariable String tid){
         studentService.chooseMentor(sid,tid);
         return ResultVO.ok();
+    }
+    //查看得分
+    @GetMapping("score/{sid}")
+    public ResultVO myScore(@RequestAttribute String uid){
+        List<ProcessScore> score = studentService.myScore(uid);
+        return ResultVO.success(Map.of("score",score));
     }
 }
