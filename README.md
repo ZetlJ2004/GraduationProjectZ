@@ -1,3 +1,10 @@
+## 步骤
+首先需求分析，根据需求设计数据库；
+设计service类实现需求，
+设计接口类实现service类需要的数据库数据，
+设计controller类结合service类的方法实现需求，
+设计http文件进行测试
+
 ## Change log
 
 #### Ver 0.5
